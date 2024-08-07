@@ -147,6 +147,8 @@ export default function Home() {
         boxShadow={3}
         borderRadius={2}
         overflow="hidden"
+        display="flex"
+        flexDirection="column"
       >
         <Box
           width="800px"
@@ -174,7 +176,13 @@ export default function Home() {
           />
         </Box>
 
-        <Stack width="100%" height="300px" spacing={2} overflow="auto">
+        <Stack
+          width="100%"
+          flexGrow={1}
+          spacing={2}
+          overflow="auto"
+          sx={{ maxHeight: "400px" }}
+        >
           {inventory
             .filter((item) =>
               item.name.toLowerCase().includes(filterText.toLowerCase())
@@ -189,8 +197,7 @@ export default function Home() {
                 justifyContent="space-between"
                 bgcolor="#f0f0f0"
                 padding={5}
-                py={2}
-                px={3}
+                p={2}
               >
                 <Typography variant="h3" color="#333" textAlign="center">
                   {name.charAt(0).toUpperCase() + name.slice(1)}
